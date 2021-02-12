@@ -1,6 +1,7 @@
 import React, { Component } from  'react';
 import Course from './components/Course'
 import './App.css';
+import NewCourseForm from './components/NewCourseForm';
 
 class App extends Component {
 
@@ -25,6 +26,7 @@ class App extends Component {
     this.remove = this.remove.bind(this);
   }
 
+
   remove(courseid){
     const { courses } = this.state,
        courseIndex = courses.findIndex(course => course.id == courseid);
@@ -39,6 +41,7 @@ class App extends Component {
     const { state } = this;
     return(
       <div className="App">
+        <NewCourseForm />
         <ul className="courses-list">
           {
             state.courses.map( course => <Course course={course} onRemove={this.remove}/>)
